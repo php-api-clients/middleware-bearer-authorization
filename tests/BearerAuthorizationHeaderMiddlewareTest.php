@@ -2,13 +2,12 @@
 
 namespace ApiClients\Tests\Middleware\BearerAuthorization;
 
+use ApiClients\Middleware\BearerAuthorization\BearerAuthorizationHeaderMiddleware;
+use ApiClients\Middleware\BearerAuthorization\Options;
 use ApiClients\Tools\TestUtilities\TestCase;
 use React\EventLoop\Factory;
 use RingCentral\Psr7\Request;
-use ApiClients\Middleware\BearerAuthorization\BearerAuthorizationHeaderMiddleware;
-use ApiClients\Middleware\BearerAuthorization\Options;
 use function Clue\React\Block\await;
-use function React\Promise\resolve;
 
 final class BearerAuthorizationHeaderMiddlewareTest extends TestCase
 {
@@ -17,7 +16,7 @@ final class BearerAuthorizationHeaderMiddlewareTest extends TestCase
         yield [
             [],
             false,
-            ''
+            '',
         ];
 
         yield [
@@ -27,7 +26,7 @@ final class BearerAuthorizationHeaderMiddlewareTest extends TestCase
                 ],
             ],
             false,
-            ''
+            '',
         ];
 
         yield [
@@ -37,7 +36,7 @@ final class BearerAuthorizationHeaderMiddlewareTest extends TestCase
                 ],
             ],
             false,
-            ''
+            '',
         ];
 
         yield [
@@ -47,7 +46,7 @@ final class BearerAuthorizationHeaderMiddlewareTest extends TestCase
                 ],
             ],
             true,
-            'Bearer kroket'
+            'Bearer kroket',
         ];
     }
 
@@ -62,6 +61,7 @@ final class BearerAuthorizationHeaderMiddlewareTest extends TestCase
 
         if ($hasHeader === false) {
             self::assertFalse($changedRequest->hasHeader('Authorization'));
+
             return;
         }
 
