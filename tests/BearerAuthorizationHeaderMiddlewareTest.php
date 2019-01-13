@@ -5,9 +5,9 @@ namespace ApiClients\Tests\Middleware\BearerAuthorization;
 use ApiClients\Middleware\BearerAuthorization\BearerAuthorizationHeaderMiddleware;
 use ApiClients\Middleware\BearerAuthorization\Options;
 use ApiClients\Tools\TestUtilities\TestCase;
+use function Clue\React\Block\await;
 use React\EventLoop\Factory;
 use RingCentral\Psr7\Request;
-use function Clue\React\Block\await;
 
 /**
  * @internal
